@@ -11,13 +11,13 @@ Vue.component('testRegEx', {
   template: `
   <div>
     <div class="field">
-      <div class="control">
-        <input class="input is-success" v-model="newText" type="text" placeholder="Check Your RegEx">
-        <a class="button is-primary" @click="checkRegEx">Check</a>
+      <div class="control" >
+        <input class="input" :style="styles.inputField" v-model="newText" type="text" placeholder="Check Your RegEx">
+        <a class="button" @click="checkRegEx" :style="styles.button">Check</a>
       </div>
     </div>
-      <article :class="isSuccess" v-if="isShown">
-          <div class="message-header">
+      <article :class="isSuccess" v-if="isShown" :style="styles.regExMessageBox">
+          <div class="message-header" >
             <p>{{ regExMessageTitle }}</p>
             <button class="delete" aria-label="delete" @click="isShown = false"></button>
           </div>
@@ -33,12 +33,29 @@ Vue.component('testRegEx', {
       isSuccess: '',
       regExMessageTitle: '',
       regExMessage: '',
-      isShown: false
+      isShown: false,
+      styles: {
+        button: {
+          'background-color': '#00aeef',
+          padding: '10px',
+          'max-width': '150px',
+          'margin-top': '25px',
+          display: ['-webkit-box', '-ms-flexbox', 'flex']
+        },
+        inputField: {
+          padding: '10px',
+          'max-width': '250px',
+          display: ['-webkit-box', '-ms-flexbox', 'flex']
+        },
+        regExMessageBox: {
+          'max-width': '600px'
+        }
+      }
     }
   },
   methods: {
     checkRegEx () {
-      if (this.newText.length < 1) return alert('Please Enter  correct RegEx')
+      if (typeof this.newText !== 'string') return alert('Please Enter Correct RegEx')
 
       var regex
       regex = this.newText
@@ -46,16 +63,15 @@ Vue.component('testRegEx', {
       if (ok) {
         this.isSuccess = 'message is-success'
         this.isShown = true
-        this.newText = ''
         this.regExMessageTitle = 'Success'
-        this.regExMessage = 'This RegEx is safe for use'
+        this.regExMessage = 'This RegEx is safe for use: ' + this.newText
       } else {
         this.isSuccess = 'message is-danger'
         this.isShown = true
-        this.newText = ''
         this.regExMessageTitle = 'WARNING!!'
-        this.regExMessage = 'WARNING! POTENTIAL RISK IF THIS REGEX IS IMPLEMENTED'
+        this.regExMessage = 'WARNING! POTENTIAL RISK IF THIS REGEX IS IMPLEMENTED: ' + this.newText
       }
+      this.newText = ''
     }
   }
 })
