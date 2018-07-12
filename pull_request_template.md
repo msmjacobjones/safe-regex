@@ -1,7 +1,7 @@
 ## Description
 Add description
 
-## Mingle card
+## Mingle/Jira card
 * [<card number>](https:<URL>)
 
 ## Status
