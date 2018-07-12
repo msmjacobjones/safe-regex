@@ -1,6 +1,6 @@
 # vuejs
 
-> A Vue.js project
+> A Vue.js project to check RegEx safty
 
 ## Build Setup
 
