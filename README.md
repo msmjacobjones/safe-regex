@@ -1,6 +1,6 @@
 # vuejs
 
-> A Vue.js project to check the safty of your RegEx
+> A Vue.js project to check that your RegEx is safe
 ## Build Setup
 
 ``` bash
