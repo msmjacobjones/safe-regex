@@ -1,6 +1,7 @@
 # vuejs
 
 > A Vue.js project to check the safty of your RegEx
+requires Vue.js
 
 ## Build Setup
 
