@@ -2,7 +2,7 @@
 Add description
 
 ## Mingle/Jira card
-* [<card number>](https:<URL>)
+* [<card number>](<URL>)
 
 ## Status
 
